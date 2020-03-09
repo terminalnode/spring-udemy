@@ -7,9 +7,13 @@ public class PropInjectionDemo {
 		ClassPathXmlApplicationContext context =
 				new ClassPathXmlApplicationContext("applicationContext.xml");
 		
-		Coach theCoach = context.getBean("myCricketCoach", Coach.class);
+		CricketCoach theCoach = context.getBean("myCricketCoach", CricketCoach.class);
 		System.out.println(theCoach.getDailyWorkout());
 		System.out.println(theCoach.getFortune());
+
+		System.out.println("\nLiteral values injected through applicationContext.xml");
+		System.out.println(theCoach.getEmailAddress());
+		System.out.println(theCoach.getTeamName());
 		
 		context.close();
 	}

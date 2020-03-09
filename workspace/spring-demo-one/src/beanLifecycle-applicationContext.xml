@@ -11,10 +11,18 @@
 		  class="com.example.springdemo.HappyFortuneService">
 	</bean>
 
-    <bean id="myCoach"
+    <bean id="myCoachSingleton"
     	  class="com.example.springdemo.TrackCoach"
     	  init-method="doMyStartupStuff"
     	  destroy-method="doMyCleanupStuff">
+    	  <constructor-arg ref="myFortune" />
+ 	</bean>
+
+    <bean id="myCoachPrototype"
+    	  class="com.example.springdemo.TrackCoach"
+    	  init-method="doMyStartupStuff"
+    	  destroy-method="doMyCleanupStuff"
+    	  scope="prototype">
     	  <constructor-arg ref="myFortune" />
  	</bean>
 </beans>

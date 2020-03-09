@@ -8,10 +8,16 @@ public class BeanLifecycleDemoApp {
 				new ClassPathXmlApplicationContext("beanLifecycle-applicationContext.xml");
 		
 		// Prints init-method on initialization
-		Coach theCoach = context.getBean("myCoach", Coach.class);
+		Coach coachSingleton = context.getBean("myCoachSingleton", Coach.class);
+		Coach coachPrototype = context.getBean("myCoachPrototype", Coach.class);
 		// Then print the method output
-		System.out.println(theCoach.getDailyWorkout());
-		// When program exits, calls destroy method
+		System.out.println(coachSingleton.getDailyWorkout());
+		System.out.println(coachPrototype.getDailyWorkout());
+
+		// When program exits, calls destroy method,
+		// but ONLY for the singleton! Prototypes are
+		// not managed by spring after initialization.
+		// The init-method will be called, but the destroy-method will not.
 
 		context.close();
 	}

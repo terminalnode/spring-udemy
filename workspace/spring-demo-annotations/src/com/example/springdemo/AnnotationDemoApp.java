@@ -8,9 +8,11 @@ public class AnnotationDemoApp {
 				new ClassPathXmlApplicationContext("applicationContext.xml");
 		
 		Coach theCoach = context.getBean("tennisCoach", Coach.class);
+		Coach theNewCoach = context.getBean("newTennisCoach", Coach.class);
 		
 		System.out.println(theCoach.getDailyWorkout());
-		System.out.println(theCoach.getFortune());
+		System.out.println(theCoach.getFortune()); // constructor injection
+		System.out.println(theNewCoach.getFortune()); // setter injection
 		
 		context.close();
 	}

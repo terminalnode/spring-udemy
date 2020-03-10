@@ -7,11 +7,14 @@ public class AppConfigurationClassDemoSwimCoach {
 		AnnotationConfigApplicationContext context =
 				new AnnotationConfigApplicationContext(ConfigurationClass.class);
 
-		Coach coach = context.getBean("swimCoach", Coach.class);
+		SwimCoach coach = context.getBean("swimCoach", SwimCoach.class);
 		Coach alsoCoach = context.getBean("swimCoach", Coach.class);
+
 		System.out.println(coach.getDailyWorkout());
 		System.out.println(coach.getFortune());
 		System.out.println("Is the bean singleton? " + (coach == alsoCoach));
+		System.out.println(coach.getEmail());
+		System.out.println(coach.getTeam());
 		
 		jesusFuckingChristJustDieAlready(context);
 	}

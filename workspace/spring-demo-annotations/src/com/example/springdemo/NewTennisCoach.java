@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class NewTennisCoach implements Coach {
 	@Autowired
-	@Qualifier("restFortuneService")
+	@Qualifier("happyFortuneService")
 	private FortuneService fortuneService;
 	
 	// Using field injection above, this method will not be called automatically.

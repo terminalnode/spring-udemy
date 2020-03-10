@@ -1,14 +1,18 @@
 package com.example.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class NewTennisCoach implements Coach {
+	@Autowired
+	@Qualifier("restFortuneService")
 	private FortuneService fortuneService;
 	
-	@Autowired
+	// Using field injection above, this method will not be called automatically.
 	public void setFortuneService(FortuneService fortuneService) {
+		System.out.println("Setter injection yeah baby!");
 		this.fortuneService = fortuneService;
 	}
 

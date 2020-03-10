@@ -11,6 +11,7 @@ public class AnnotationDemoApp {
 		Coach theNewCoach = context.getBean("newTennisCoach", Coach.class);
 		
 		System.out.println(theCoach.getDailyWorkout());
+		System.out.println(theNewCoach.getDailyWorkout());
 		System.out.println(theCoach.getFortune()); // constructor injection
 		System.out.println(theNewCoach.getFortune()); // setter injection
 		

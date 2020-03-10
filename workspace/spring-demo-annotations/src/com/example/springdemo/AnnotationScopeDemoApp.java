@@ -13,5 +13,7 @@ public class AnnotationScopeDemoApp {
 		System.out.println("Are they the same? " + (coach1 == coach2));
 		System.out.println("ID for coach1: " + coach1);
 		System.out.println("ID for coach2: " + coach2);
+		
+		context.close();
 	}
 }

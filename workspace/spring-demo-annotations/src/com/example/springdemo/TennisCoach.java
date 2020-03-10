@@ -1,12 +1,15 @@
 package com.example.springdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component // default bean id is "tennisCoach"
-@Scope("prototype")
+@Scope("singleton") // remember preDestroy doesn't run unless singleton
 public class TennisCoach implements Coach {
 	private FortuneService fortuneService;
 	
@@ -27,5 +30,15 @@ public class TennisCoach implements Coach {
 	@Override
 	public String getFortune() {
 		return fortuneService.getFortune();
+	}
+	
+	@PostConstruct
+	public void doShitFirst() {
+		System.out.println("We post constructin' all up in this here!");
+	}
+	
+	@PreDestroy
+	public void doShitLast() {
+		System.out.println("Just cleanin' cleanin' cleaning'...");
 	}
 }

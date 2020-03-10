@@ -1,11 +1,11 @@
 package com.example.springdemo;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class AnnotationScopeDemoApp {
+public class AppConfigurationClassDemo {
 	public static void main(String[] args) {
-		ClassPathXmlApplicationContext context =
-				new ClassPathXmlApplicationContext("applicationContext.xml");
+		AnnotationConfigApplicationContext context =
+				new AnnotationConfigApplicationContext(ConfigurationClass.class);
 		
 		Coach coach1 = context.getBean("tennisCoach", Coach.class);
 		Coach coach2 = context.getBean("tennisCoach", Coach.class);

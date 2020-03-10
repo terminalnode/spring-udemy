@@ -2,9 +2,11 @@ package com.example.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component // default bean id is "tennisCoach"
+@Scope("prototype")
 public class TennisCoach implements Coach {
 	private FortuneService fortuneService;
 	

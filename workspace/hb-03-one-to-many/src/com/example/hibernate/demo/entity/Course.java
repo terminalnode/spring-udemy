@@ -26,6 +26,10 @@ public class Course {
       CascadeType.DETACH, CascadeType.REFRESH})
   @JoinColumn(name="instructor_id")
   private Instructor instructor;
+  
+  public Course() {
+    // mandatory no-arg constructor
+  }
 
   public Course(String title) {
     this.title = title;

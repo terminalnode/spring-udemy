@@ -31,6 +31,8 @@ public class EagerLazyDemo {
 	    System.out.println("Got: " + instructor);
 	    
 	    System.out.println("Print out all the instructor courses...");
+	    // If using lazy loading, the courses won't be fetched until
+	    // this line below is hit (instructor.getCourses())
 	    for (Course course : instructor.getCourses()) {
 	      System.out.println(course);
 	    }

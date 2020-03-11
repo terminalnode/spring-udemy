@@ -8,54 +8,54 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="instructor_detail")
+@Table(name = "instructor_detail")
 public class InstructorDetail {
-	@Id
-	@Column(name="id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
-	
-	@Column(name="youtube_channel")
-	private String youtubeChannel;
-	
-	@Column(name="hobby")
-	private String hobby;
-	
-	@Override
-	public String toString() {
-		return "InstructorDetail [id=" + id + ", youtubeChannel=" + youtubeChannel + ", hobby=" + hobby + "]";
-	}
+  @Id
+  @Column(name = "id")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private int id;
 
-	public InstructorDetail() {
-		// empty no arg constructor required
-	}
+  @Column(name = "youtube_channel")
+  private String youtubeChannel;
 
-	public InstructorDetail(String youtubeChannel, String hobby) {
-		this.youtubeChannel = youtubeChannel;
-		this.hobby = hobby;
-	}
+  @Column(name = "hobby")
+  private String hobby;
 
-	public int getId() {
-		return id;
-	}
+  @Override
+  public String toString() {
+    return "InstructorDetail [id=" + id + ", youtubeChannel=" + youtubeChannel + ", hobby=" + hobby + "]";
+  }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+  public InstructorDetail() {
+    // empty no arg constructor required
+  }
 
-	public String getYoutubeChannel() {
-		return youtubeChannel;
-	}
+  public InstructorDetail(String youtubeChannel, String hobby) {
+    this.youtubeChannel = youtubeChannel;
+    this.hobby = hobby;
+  }
 
-	public void setYoutubeChannel(String youtubeChannel) {
-		this.youtubeChannel = youtubeChannel;
-	}
+  public int getId() {
+    return id;
+  }
 
-	public String getHobby() {
-		return hobby;
-	}
+  public void setId(int id) {
+    this.id = id;
+  }
 
-	public void setHobby(String hobby) {
-		this.hobby = hobby;
-	}
+  public String getYoutubeChannel() {
+    return youtubeChannel;
+  }
+
+  public void setYoutubeChannel(String youtubeChannel) {
+    this.youtubeChannel = youtubeChannel;
+  }
+
+  public String getHobby() {
+    return hobby;
+  }
+
+  public void setHobby(String hobby) {
+    this.hobby = hobby;
+  }
 }

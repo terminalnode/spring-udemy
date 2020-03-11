@@ -33,7 +33,10 @@ public class GetInstructorDetailDemo {
       session.getTransaction().commit();
 			
       System.out.println("All done!");
-    } finally {
+    } catch (Exception exc) {
+      exc.printStackTrace();
+    }finally {
+      session.close();
       factory.close();
     }
   }

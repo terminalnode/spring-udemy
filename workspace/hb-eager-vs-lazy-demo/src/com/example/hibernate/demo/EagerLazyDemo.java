@@ -29,6 +29,14 @@ public class EagerLazyDemo {
 	    System.out.println("Fetching instructor...");
 	    Instructor instructor = session.get(Instructor.class, id);
 	    System.out.println("Got: " + instructor);
+
+	    // Committing the transaction before getting the courses,
+	    // or more accurately getting the courses after committing
+	    // our transaction, will cause a LazyInitializationException.
+	    // The course tells us the session needs to be closed, but
+	    // this doesn't seem to be true for the current version of spring.
+	    //System.out.println("Commiting transaction...");
+	    //session.getTransaction().commit();
 	    
 	    System.out.println("Print out all the instructor courses...");
 	    // If using lazy loading, the courses won't be fetched until
@@ -39,6 +47,7 @@ public class EagerLazyDemo {
 	    
 	    System.out.println("Commiting transaction...");
 	    session.getTransaction().commit();
+
 	    System.out.println("All done!");
 
 	  } catch (Exception exc) {

@@ -10,8 +10,11 @@ import com.example.hibernate.demo.entity.InstructorDetail;
 public class DeleteDemo {
 
   public static void main(String[] args) {
-    SessionFactory factory = new Configuration().configure("hibernate.cfg.xml") // optional when using this default name
-        .addAnnotatedClass(Instructor.class).addAnnotatedClass(InstructorDetail.class).buildSessionFactory();
+    SessionFactory factory = new Configuration()
+        .configure("hibernate.cfg.xml") // optional when using this default name
+        .addAnnotatedClass(Instructor.class)
+        .addAnnotatedClass(InstructorDetail.class)
+        .buildSessionFactory();
 
     Session session = factory.getCurrentSession();
 

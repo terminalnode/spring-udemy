@@ -10,17 +10,25 @@ import com.example.hibernate.demo.entity.InstructorDetail;
 public class CreateDemo {
 
   public static void main(String[] args) {
-    SessionFactory factory = new Configuration().configure("hibernate.cfg.xml") // optional when using this default name
-        .addAnnotatedClass(Instructor.class).addAnnotatedClass(InstructorDetail.class).buildSessionFactory();
+    SessionFactory factory = new Configuration()
+        .configure("hibernate.cfg.xml") // optional when using this default name
+        .addAnnotatedClass(Instructor.class)
+        .addAnnotatedClass(InstructorDetail.class)
+        .buildSessionFactory();
 
     Session session = factory.getCurrentSession();
 
     try {
       System.out.println("Creating a new instructor object...");
-      Instructor instructor = new Instructor("Alexander", "Rundberg", "alexander.rundberg@email.com");
+      Instructor instructor = new Instructor(
+          "Alexander",
+          "Rundberg",
+          "alexander.rundberg@email.com");
 
       System.out.println("Creating a new instructor detail object...");
-      InstructorDetail instructorDetail = new InstructorDetail("https://www.youtube.com/screw youtube", "Programming");
+      InstructorDetail instructorDetail = new InstructorDetail(
+          "https://www.youtube.com/screw youtube",
+          "Programming");
 
       System.out.println("Associating instructor and instructor detail...");
       instructor.setInstructorDetail(instructorDetail);

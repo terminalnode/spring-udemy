@@ -51,6 +51,16 @@ public class StudentRestController {
 
     return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
   }
+  
+  @ExceptionHandler
+  public ResponseEntity<StudentErrorResponse> handleException(Exception exc) {
+    StudentErrorResponse error = new StudentErrorResponse();
+    error.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+    error.setMessage("Something went wrong! Internal server error");
+    error.setTimeStamp(System.currentTimeMillis());
+    
+    return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+  }
 }
 
 

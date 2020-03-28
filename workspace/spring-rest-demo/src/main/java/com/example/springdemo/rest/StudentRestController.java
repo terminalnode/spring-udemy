@@ -5,9 +5,6 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,26 +37,6 @@ public class StudentRestController {
     }
 
     return students.get(studentId);
-  }
-
-  @ExceptionHandler
-  public ResponseEntity<StudentErrorResponse> handleException(StudentNotFoundException exc) {
-    StudentErrorResponse error = new StudentErrorResponse();
-    error.setStatus(HttpStatus.NOT_FOUND.value());
-    error.setMessage(exc.getMessage());
-    error.setTimeStamp(System.currentTimeMillis());
-
-    return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
-  }
-  
-  @ExceptionHandler
-  public ResponseEntity<StudentErrorResponse> handleException(Exception exc) {
-    StudentErrorResponse error = new StudentErrorResponse();
-    error.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-    error.setMessage("Something went wrong! Internal server error");
-    error.setTimeStamp(System.currentTimeMillis());
-    
-    return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
   }
 }
 

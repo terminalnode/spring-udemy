@@ -24,4 +24,13 @@ public class CustomerRestExceptionHandler {
         System.currentTimeMillis());
     return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
   }
+  
+  @ExceptionHandler
+  public ResponseEntity<CustomerErrorResponse> handleException(CustomerMissingFieldsException exc) {
+    CustomerErrorResponse error = new CustomerErrorResponse(
+        HttpStatus.BAD_REQUEST.value(),
+        exc.getMessage(),
+        System.currentTimeMillis());
+    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+  }
 }

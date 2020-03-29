@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,6 +44,16 @@ public class CustomerRestController {
     if (customer.getFirstName() == null || customer.getLastName() == null || customer.getEmail() == null) {
       throw new CustomerMissingFieldsException("One or more required fields missing!");
     }
+    return customer;
+  }
+  
+  @PutMapping("/customers")
+  public Customer updateCustomer(@RequestBody Customer customer) {
+    // This method has several errors that we could solve if we felt like it.
+    // If an ID isn't supplied, a new user is created. This is probably not desirable.
+    // If a field isn't included, such as lastName, this will be replaced with null.
+    // Probably also not desired.
+    customerService.saveCustomer(customer);
     return customer;
   }
 }

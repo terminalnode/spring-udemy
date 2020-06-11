@@ -5,6 +5,6 @@
   </head>
   <body>
     <h1>WELCOME TO FUNKY TOWN BABY</h1>
-    <a href="showForm">Hello World form!</a>
+    <a href="hello/showForm">Hello World form!</a>
   </body>
 </html>

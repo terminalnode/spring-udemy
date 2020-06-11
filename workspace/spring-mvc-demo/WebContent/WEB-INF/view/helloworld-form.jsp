@@ -6,7 +6,7 @@
 
   <body>
     <h1>Please fill in this funky form!</h1>
-    <form action="PROCESSFORM" method="GET">
+    <form action="PROCESSFORMv2" method="GET">
       <input type="text" name="studentName" placeholder="What's your name?" />
       <input type="submit" />
     </form>

@@ -1,11 +1,20 @@
 package com.example.springdemo.mvc;
 
+import java.util.LinkedHashMap;
+
 public class Student {
   private String firstName;
   private String lastName;
   private String country;
+  private LinkedHashMap<String, String> countryOptions;
   
   public Student() {
+    // populate country options using ISO country code
+    countryOptions = new LinkedHashMap<>();
+    countryOptions.put("SE", "Sweden");
+    countryOptions.put("PL", "Poland");
+    countryOptions.put("FR", "France");
+    countryOptions.put("JP", "Japan");
   }
   
   @Override
@@ -39,6 +48,10 @@ public class Student {
 
   public void setCountry(String country) {
     this.country = country;
+  }
+
+  public LinkedHashMap<String, String> getCountryOptions() {
+    return countryOptions;
   }
   
 }

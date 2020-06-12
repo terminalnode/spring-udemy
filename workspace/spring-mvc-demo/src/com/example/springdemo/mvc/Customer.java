@@ -13,9 +13,10 @@ public class Customer {
   @Size(min=1, message="* required")
   private String lastName;
   
+  @NotNull(message="* required")
   @Min(value=0, message="free passes can't be negative!")
   @Max(value=10, message="too many free passes, max is 10!")
-  private int freePasses;
+  private Integer freePasses;
   
   @Pattern(regexp="^\\d{3}\\s\\d{2}", message="* Swedish postal codes has format xxx xx")
   private String postalCode;
@@ -47,11 +48,11 @@ public class Customer {
     this.lastName = lastName;
   }
 
-  public int getFreePasses() {
+  public Integer getFreePasses() {
     return freePasses;
   }
 
-  public void setFreePasses(int freePasses) {
+  public void setFreePasses(Integer freePasses) {
     this.freePasses = freePasses;
   }
 

@@ -22,6 +22,13 @@
       <form:radiobutton path="favouriteLanguage" value="Python" /> Python
       <br />
 
+      Favourite operating system:
+      <form:checkbox path="operatingSystems" value="ArchLinux" /> ArchLinux
+      <form:checkbox path="operatingSystems" value="Ubuntu" /> Ubuntu
+      <form:checkbox path="operatingSystems" value="Fedora" /> Fedora
+      <form:checkbox path="operatingSystems" value="NixOS" /> NixOS
+      <br />
+
       Country:
       <form:select path="country">
         <form:options items="${student.countryOptions}" />

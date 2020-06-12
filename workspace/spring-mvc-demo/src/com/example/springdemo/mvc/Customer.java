@@ -6,6 +6,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.example.springdemo.mvc.validation.CourseCode;
+
 public class Customer {
   private String firstName;
   
@@ -20,6 +22,9 @@ public class Customer {
   
   @Pattern(regexp="^\\d{3}\\s\\d{2}", message="* Swedish postal codes has format xxx xx")
   private String postalCode;
+  
+  @CourseCode(value="ABC", message="bruh, course needs to start with ABC")
+  private String courseCode;
   
   public Customer() {
   }
@@ -62,5 +67,13 @@ public class Customer {
 
   public void setPostalCode(String postalCode) {
     this.postalCode = postalCode;
+  }
+
+  public String getCourseCode() {
+    return courseCode;
+  }
+
+  public void setCourseCode(String courseCode) {
+    this.courseCode = courseCode;
   }
 }

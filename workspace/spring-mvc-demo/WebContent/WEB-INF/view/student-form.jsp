@@ -10,13 +10,24 @@
     <form:form action="processForm" modelAttribute="student">
       First name: <form:input path="firstName" />
       <br />
+
       Last name: <form:input path="lastName" />
       <br />
+
+      Favourite language:
+      <br />
+      <form:radiobutton path="favouriteLanguage" value="Java" /> Java
+      <form:radiobutton path="favouriteLanguage" value="Haskell" /> Haskell
+      <form:radiobutton path="favouriteLanguage" value="Ruby" /> Ruby
+      <form:radiobutton path="favouriteLanguage" value="Python" /> Python
+      <br />
+
       Country:
       <form:select path="country">
         <form:options items="${student.countryOptions}" />
       </form:select>
       <br />
+
       <input type="submit" value="Submit" />
     </form:form>
   </body>

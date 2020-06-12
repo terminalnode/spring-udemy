@@ -14,5 +14,9 @@
     <p>
       Country: ${student.country}
     </p>
+
+    <p>
+      Favourite language: ${student.favouriteLanguage}
+    </p>
   </body>
 </html>

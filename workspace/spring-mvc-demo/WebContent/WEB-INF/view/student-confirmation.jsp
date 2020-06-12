@@ -8,7 +8,11 @@
   <body>
     <h1></h1>
     <p>
-    Student confirmed: ${student.firstName} ${student.lastName}
+      Student confirmed: ${student.firstName} ${student.lastName}
+    </p>
+
+    <p>
+      Country: ${student.country}
     </p>
   </body>
 </html>

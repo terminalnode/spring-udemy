@@ -12,6 +12,15 @@
       <br />
       Last name: <form:input path="lastName" />
       <br />
+      Country:
+      <form:select path="country">
+        <form:option value="Sweden" label="Sweden" />
+        <form:option value="Poland" label="Poland" />
+        <form:option value="France" label="France" />
+        <form:option value="Japan" label="Japan" />
+        <form:option value="Esperantujo" label="Esperantujo" />
+      </form:select>
+      <br />
       <input type="submit" value="Submit" />
     </form:form>
   </body>

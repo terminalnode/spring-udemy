@@ -21,4 +21,10 @@ public class CustomerDAOHibernate implements CustomerDAO {
     Query<Customer> query = session.createQuery("from Customer", Customer.class);
     return query.getResultList();
   }
+
+  @Override
+  public void saveCustomer(Customer customer) {
+    Session session = sessionFactory.getCurrentSession();
+    session.save(customer);
+  }
 }

@@ -40,6 +40,12 @@
 						class="btn btn-info btn-sm">
 						Update
 					</a>
+
+					<a th:href="@{/employees/murder(employeeId=${employee.id})}"
+						class="btn btn-danger btn-sm"
+						onClick="return confirm('Are you SURE you want to murder this employee??')">
+						Kill
+					</a>
 				</td>
       </tr>
     </tbody>

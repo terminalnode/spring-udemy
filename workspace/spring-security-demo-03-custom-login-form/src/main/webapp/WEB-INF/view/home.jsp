@@ -18,6 +18,10 @@
       <a href="${pageContext.request.contextPath}/leaders">Leadership Meeting</a> (Managers only!)
     </p>
 
+    <p>
+      <a href="${pageContext.request.contextPath}/systems">IT Systems Meeting</a> (Admins only!)
+    </p>
+
     <form:form action="${pageContext.request.contextPath}/logout" method="POST">
       <input type="submit" value="Log out" />
     </form:form>

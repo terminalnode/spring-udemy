@@ -14,6 +14,10 @@
       The greatest <security:authentication property="principal.authorities" /> in all the land!
     </p>
 
+    <p>
+      <a href="${pageContext.request.contextPath}/leaders">Leadership Meeting</a> (Managers only!)
+    </p>
+
     <form:form action="${pageContext.request.contextPath}/logout" method="POST">
       <input type="submit" value="Log out" />
     </form:form>

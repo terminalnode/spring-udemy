@@ -26,6 +26,7 @@
 				<th>First name</th>
 				<th>Last name</th>
 				<th>Email</th>
+				<th>Actions</th>
 			</tr>
     </thead>
 
@@ -34,6 +35,12 @@
         <td th:text="${employee.firstName}" />
         <td th:text="${employee.lastName}" />
         <td th:text="${employee.email}" />
+        <td>
+					<a th:href="@{/employees/edit(employeeId=${employee.id})}"
+						class="btn btn-info btn-sm">
+						Update
+					</a>
+				</td>
       </tr>
     </tbody>
   </table>

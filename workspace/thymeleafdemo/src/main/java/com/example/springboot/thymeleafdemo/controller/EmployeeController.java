@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.springboot.thymeleafdemo.entity.Employee;
 import com.example.springboot.thymeleafdemo.service.EmployeeService;
@@ -29,6 +30,13 @@ public class EmployeeController {
   @GetMapping("/add")
   public String showAddEmployeeForm(Model model) {
     model.addAttribute("employee", new Employee());
+    return "employees/employee-form";
+  }
+  
+  @GetMapping("/edit")
+  public String showEditEmployeeForm(@RequestParam("employeeId") int id, Model model) {
+    Employee employee = employeeService.findById(id);
+    model.addAttribute("employee", employee);
     return "employees/employee-form";
   }
   

@@ -14,13 +14,17 @@
       The greatest <security:authentication property="principal.authorities" /> in all the land!
     </p>
 
-    <p>
-      <a href="${pageContext.request.contextPath}/leaders">Leadership Meeting</a> (Managers only!)
-    </p>
+    <security:authorize access="hasRole('MANAGER')">
+      <p>
+        <a href="${pageContext.request.contextPath}/leaders">Leadership Meeting</a> (Managers only!)
+      </p>
+    </security:authorize>
 
-    <p>
-      <a href="${pageContext.request.contextPath}/systems">IT Systems Meeting</a> (Admins only!)
-    </p>
+    <security:authorize access="hasRole('ADMIN')">
+      <p>
+        <a href="${pageContext.request.contextPath}/systems">IT Systems Meeting</a> (Admins only!)
+      </p>
+    </security:authorize>
 
     <form:form action="${pageContext.request.contextPath}/logout" method="POST">
       <input type="submit" value="Log out" />

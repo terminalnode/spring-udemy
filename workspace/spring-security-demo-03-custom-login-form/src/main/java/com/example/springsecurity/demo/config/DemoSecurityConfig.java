@@ -1,5 +1,8 @@
 package com.example.springsecurity.demo.config;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,14 +14,12 @@ import org.springframework.security.core.userdetails.User.UserBuilder;
 @Configuration
 @EnableWebSecurity
 public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
+  @Autowired
+  private DataSource securityDataSource;
+
   @Override
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    // Add temporary users
-    UserBuilder users = User.withDefaultPasswordEncoder();
-    auth.inMemoryAuthentication()
-      .withUser(users.username("john").password("password").roles("EMPLOYEE", "RESIDENT_NERD"))
-      .withUser(users.username("mary").password("password").roles("EMPLOYEE", "MANAGER", "DUCHESS_OF_FLOOR_3"))
-      .withUser(users.username("susan").password("password").roles("EMPLOYEE", "ADMIN"));
+    auth.jdbcAuthentication().dataSource(securityDataSource);
   }
 
   @Override
